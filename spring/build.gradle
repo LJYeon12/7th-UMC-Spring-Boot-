@@ -2,7 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.3.4'
 	id 'io.spring.dependency-management' version '1.1.6'
-	id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
+	id "com.ewerk.gradle.plugins.querydsl" version "1.0.10" // -> 인텔리제이 탭에서 그래들 관련 명령어를 쉽게 볼 수 있게 해준다. -> 해당 플러그인 추가로 동일한 Q파일 생성 문제가 발생하므로 추가하지 않도록 하자
 }
 
 group = 'umc'
@@ -22,11 +22,14 @@ configurations {
 
 repositories {
 	mavenCentral()
+//	maven { url 'https://repo.spring.io/release' }
 }
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok:1.18.22'
 
@@ -42,10 +45,11 @@ dependencies {
 	implementation 'com.fasterxml.jackson.core:jackson-annotations'
 	implementation 'com.fasterxml.jackson.core:jackson-core'
 
-	implementation 'org.hibernate:hibernate-core'
+	implementation 'org.hibernate:hibernate-core:6.2.1.Final'
 
-	implementation 'org.springdoc:springdoc-openapi-ui'
-	implementation 'org.springdoc:springdoc-openapi-data-rest'
+	implementation 'org.springdoc:springdoc-openapi-ui:2.1.0'
+	//implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
+	implementation 'org.springdoc:springdoc-openapi-data-rest:1.8.0'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

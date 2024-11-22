@@ -1,10 +1,11 @@
-package umc.spring.service;
+package umc.spring.service.StoreService;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import umc.spring.domain.Store;
 import umc.spring.repository.StoreRepository;
+import umc.spring.service.StoreService.StoreQueryService;
 
 import java.util.List;
 import java.util.Optional;
