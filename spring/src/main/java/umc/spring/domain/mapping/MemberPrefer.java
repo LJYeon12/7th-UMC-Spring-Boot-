@@ -26,4 +26,11 @@ public class MemberPrefer extends BaseEntity{
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id") // 외래 키 이름 설정
     private FoodCategory foodCategory;
+
+    public void setMember(Member member) {
+        if(this.member != null)
+            member.getMemberPreferList().remove(this);
+        this.member = member;
+        member.getMemberPreferList().add(this);
+    }
 }
