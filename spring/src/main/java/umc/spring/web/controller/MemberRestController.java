@@ -10,8 +10,8 @@ import umc.spring.apiPayload.ApiResponse;
 import umc.spring.converter.MemberConverter;
 import umc.spring.domain.Member;
 import umc.spring.service.Memberservice.MemberCommandService;
-import umc.spring.web.dto.MemberRequestDTO;
-import umc.spring.web.dto.MemberResponseDTO.JoinResultDTO;
+import umc.spring.web.dto.MemberDTO.MemberRequestDTO;
+import umc.spring.web.dto.MemberDTO.MemberResponseDTO.JoinResultDTO;
 
 @RestController
 @RequiredArgsConstructor
@@ -24,4 +24,6 @@ public class MemberRestController {
         Member member = memberCommandService.joinMember(request);
         return ApiResponse.onSuccess(MemberConverter.toJoinResultDTO(member));
     }
+
+
 }

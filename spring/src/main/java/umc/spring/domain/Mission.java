@@ -3,6 +3,8 @@ package umc.spring.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import umc.spring.apiPayload.code.status.ErrorStatus;
+import umc.spring.apiPayload.exception.handler.StoreHandler;
 import umc.spring.domain.common.BaseEntity;
 import umc.spring.domain.mapping.MemberMission;
 
@@ -33,4 +35,9 @@ public class Mission extends BaseEntity {
 
     @OneToMany(mappedBy = "mission", cascade = CascadeType.ALL)
     private List<MemberMission> memberMissionList = new ArrayList<>();
+
+    public void setStore(Store store) {
+        if (store != null)
+            this.store = store;
+    }
 }

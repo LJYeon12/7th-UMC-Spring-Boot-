@@ -31,4 +31,5 @@ public class MemberMission extends BaseEntity{
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "VARCHAR(15)")
     private MissionStatus status;
+
 }

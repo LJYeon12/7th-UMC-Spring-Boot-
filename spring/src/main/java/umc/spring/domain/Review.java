@@ -23,6 +23,8 @@ public class Review extends BaseEntity {
 
     private Float score;
 
+    private String contents;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
@@ -33,4 +35,14 @@ public class Review extends BaseEntity {
 
     @OneToMany(mappedBy = "review", cascade = CascadeType.ALL)
     private List<ReviewImage> reviewImageList = new ArrayList<>();
+
+    public void setMemberAndStore(Member member, Store store) {
+        this.member = member;
+        this.store = store;
+    }
+
+    public void setReviewImageList(List<ReviewImage> reviewImageList) {
+        if (reviewImageList != null)
+            this.reviewImageList = reviewImageList;
+    }
 }
