@@ -19,7 +19,9 @@ public class ReviewRestController {
 
     // @PathVariable Spring MVC에서 URL 경로에 포함된 값을 추출하여 메서드의 파라미터로 전달할 때 사용
     @PostMapping("/{missionId}/review")
-    public ApiResponse<ReviewResponseDTO.addReviewResponseDTO> addReview(@PathVariable("missionId") Long missionId, @RequestBody @Valid ReviewRequestDTO.addReviewDTO request) {
+    public ApiResponse<ReviewResponseDTO.addReviewResponseDTO> addReview(
+            @PathVariable("missionId") Long missionId,
+            @RequestBody @Valid ReviewRequestDTO.addReviewDTO request) {
         // 임시 객체 생성
         Member member = Member.builder()
                 .id(1L)

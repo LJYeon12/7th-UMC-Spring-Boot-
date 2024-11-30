@@ -21,7 +21,6 @@ import umc.spring.web.dto.ReviewDTO.ReviewResponseDTO;
 @RequestMapping("/missions")
 public class MissionRestController {
     private final MissionCommandService missionCommandService;
-
     @PostMapping("/{storeId}")
     public ApiResponse<MissionResponseDTO.createMissionResponseDTO> createMission(
             @PathVariable("storeId") Long storeId,
@@ -29,5 +28,4 @@ public class MissionRestController {
         Mission mission = missionCommandService.createMission(storeId, requestDTO);
         return ApiResponse.onSuccess(MissionConverter.createMissionResponseDTO(mission));
     }
-
 }

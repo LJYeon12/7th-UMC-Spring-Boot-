@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 public class MissionResponseDTO {
-
     @Builder
     @Getter
     @NoArgsConstructor
