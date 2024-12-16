@@ -32,4 +32,9 @@ public class MemberMission extends BaseEntity{
     @Column(columnDefinition = "VARCHAR(15)")
     private MissionStatus status;
 
+    public void setStatus(MissionStatus status) {
+        if (this.status != status) {
+            this.status = status;
+        }
+    }
 }

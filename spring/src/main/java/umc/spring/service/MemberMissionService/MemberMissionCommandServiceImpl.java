@@ -41,4 +41,23 @@ public class MemberMissionCommandServiceImpl implements MemberMissionCommandServ
         member.addMemberMission(memberMission);
         memberMissionRepository.save(memberMission);
     }
+
+    @Override
+    @Transactional
+    public MemberMission patchToCompletedMissionDTO(Long memberId, Long missionId) {
+        Member member = memberRepository.findById(memberId)
+                .orElseThrow(() -> new MemberHandler(ErrorStatus.MEMBER_NOT_FOUND));
+        Mission mission = missionRepository.findById(missionId)
+                .orElseThrow(() -> new MissionHandler(ErrorStatus.MISSION_NOT_FOUND));
+        // 중복 처리
+        boolean alreadyExists = memberMissionRepository.existsByMemberAndMission(member, mission);
+        if (!alreadyExists) {
+            throw new MemberMissionHandler(ErrorStatus.MEMBERMISSION_NOT_FOUND);
+        }
+
+        MemberMission memberMission = memberMissionRepository.findByMemberAndMission(member, mission);
+        memberMission.setStatus(MissionStatus.COMPLETE);
+        return memberMission;
+    }
+
 }

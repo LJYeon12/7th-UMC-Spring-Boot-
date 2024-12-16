@@ -8,7 +8,7 @@ import umc.spring.converter.MissionConverter;
 import umc.spring.domain.Mission;
 import umc.spring.domain.Store;
 import umc.spring.repository.MissionRepository;
-import umc.spring.repository.StoreRepository;
+import umc.spring.repository.StoreRepository.StoreRepository;
 import umc.spring.web.dto.MissionDTO.MissionRequestDTO;
 
 @Service

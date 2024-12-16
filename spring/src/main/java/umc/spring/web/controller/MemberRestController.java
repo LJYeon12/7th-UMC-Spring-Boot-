@@ -24,6 +24,4 @@ public class MemberRestController {
         Member member = memberCommandService.joinMember(request);
         return ApiResponse.onSuccess(MemberConverter.toJoinResultDTO(member));
     }
-
-
 }

@@ -34,6 +34,8 @@ public enum ErrorStatus implements BaseErrorCode {
     MISSION_NOT_ASSOCIATED_WITH_STORE(HttpStatus.NOT_FOUND, "MISSION4002", "미션과 연관된 스토어가 없습니다"),
     // MemberMission
     MISSION_ALREADY_ADD_MEMBER(HttpStatus.CONFLICT, "MEMBERMISSION4009", "미션이 이미 멤버에 추가된 상태입니다"),
+
+    MEMBERMISSION_NOT_FOUND(HttpStatus.NOT_FOUND, "MEMBERMISSION4001", "멤버와 연결된 미션을 찾을 수 없습니다"),
     // Store
     STORE_NOT_FOUND(HttpStatus.NOT_FOUND, "STORE4001", "store 를 찾을 수 없습니다.");
 
